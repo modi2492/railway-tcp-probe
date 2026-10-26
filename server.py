@@ -7,13 +7,13 @@ try:
     s = socket.socket(
         socket.AF_INET,
         socket.SOCK_RAW,
-        socket.IPPROTO_TCP
+        socket.IPPROTO_RAW
     )
-    print("RAW_SOCKET_AVAILABLE", flush=True)
+    s.setsockopt(socket.IPPROTO_IP, socket.IP_HDRINCL, 1)
+    print("IP_HDRINCL_AVAILABLE", flush=True)
     s.close()
 except Exception as e:
-    print(f"RAW_SOCKET_UNAVAILABLE: {e!r}", flush=True)
-
+    print(f"IP_HDRINCL_UNAVAILABLE: {e!r}", flush=True)
 
 HOST = "0.0.0.0"
 PORT = int(os.environ.get("PORT", "8080"))
