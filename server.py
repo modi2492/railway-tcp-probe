@@ -1,6 +1,19 @@
 
 import os
 import socket
+import socket
+
+try:
+    s = socket.socket(
+        socket.AF_INET,
+        socket.SOCK_RAW,
+        socket.IPPROTO_TCP
+    )
+    print("RAW_SOCKET_AVAILABLE", flush=True)
+    s.close()
+except Exception as e:
+    print(f"RAW_SOCKET_UNAVAILABLE: {e!r}", flush=True)
+
 
 HOST = "0.0.0.0"
 PORT = int(os.environ.get("PORT", "8080"))
