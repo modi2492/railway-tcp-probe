@@ -1,8 +1,8 @@
-
+stop
 import socket
 import struct
 
-DST = "162.35.32.29"
+DST = ""
 SRC = "0.0.0.0"
 SPORT = 40123
 DPORT = 18081
